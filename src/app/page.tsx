@@ -11,12 +11,22 @@ export default function Home() {
 
   const [items, setItems] = useState([]);
 
+  const buzzeraction = (id: number, buzzerstatus: number) => {
+    fetch('/api/client', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id, buzzerstatus })
+    })
+  }
+
 
 
   useEffect(() => {
     async function getUsers() {
       try {
-        const res = await fetch('http://localhost:3000/api');
+        const res = await fetch('/api/client');
         if (!res.ok) {
           console.error('Failed to fetch data');
           return;
@@ -59,7 +69,11 @@ export default function Home() {
                 </Badge>
               </div>
               <div>
-                <Button className="w-full">เปิดไฟสีเหลือง</Button>
+                <Button className="w-full"
+                  onClick={() => buzzeraction(item.id, item.buzzer_status == null && item.buzzer_status == 0 ? 1 : 0)}
+                >
+                  Buzzer ON
+                </Button>
               </div>
               <div className="flex justify-center w-full items-center">
                 <Button variant={'secondary'} className="rounded-full w-20 h-20 m-5">
