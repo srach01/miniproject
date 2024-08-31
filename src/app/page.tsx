@@ -39,7 +39,7 @@ export default function Home() {
     }
 
     getUsers()
-    const interval = setInterval(getUsers, 1000);
+    const interval = setInterval(getUsers, 4000);
     return () => clearInterval(interval);
   }, []);
   return (
@@ -70,7 +70,7 @@ export default function Home() {
               </div>
               <div>
                 <Button className="w-full"
-                  onClick={() => buzzeraction(item.id, item.buzzer_status == null && item.buzzer_status == 0 ? 1 : 0)}
+                  onClick={() => buzzeraction(item.id, item.buzzer_status == 0 ? 1 : 0)}
                 >
                   Buzzer ON
                 </Button>
