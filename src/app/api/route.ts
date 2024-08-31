@@ -10,9 +10,9 @@ const client = new Client({
 client.connect();
 export async function POST(req: Request) {
     try {
-        const { distance, buzzer_frequency, switchbutton} = await req.json();
+        const { distance, buzzer_value, switchbutton} = await req.json();
         // Hash password
-        const res = await client.query('INSERT INTO "tbl_Panudetingai020" (ultrasonic_value, buzzer_value, switch_status) VALUES ($1, $2, $3) RETURNING *', [distance, buzzer_frequency, switchbutton]);
+        const res = await client.query('INSERT INTO "tbl_Panudetingai020" (ultrasonic_value, buzzer_value, switch_status) VALUES ($1, $2, $3) RETURNING *', [distance, buzzer_value, switchbutton]);
         return new Response(JSON.stringify(res.rows[0]), {
             status: 201,
             headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
