@@ -11,23 +11,13 @@ export default function Home() {
 
   const [items, setItems] = useState([]);
 
-  const buzzeraction = (id: number, buzzerstatus: number) => {
+  const buzzeraction = (id: number, led: number) => {
     fetch('/api/client', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id, buzzerstatus })
-    })
-  }
-
-  const switchaction = (switchstatus: number) => {
-    fetch('/api/client/switch', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ switchstatus })
+      body: JSON.stringify({ id, led })
     })
   }
 

@@ -44,8 +44,8 @@ export async function GET(){
 
 export async function PUT(req: Request){
     try {
-        const {buzzerstatus} = await req.json();
-        const res = await client.query('UPDATE "srh031" SET buzzer_status = $1 RETURNING *', [buzzerstatus]);
+        const {led} = await req.json();
+        const res = await client.query('UPDATE "srh031" SET led_yellow = $1 RETURNING *', [led]);
         return new Response(JSON.stringify(res.rows[0]), {
             status: 200,
             headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
