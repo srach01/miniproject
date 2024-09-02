@@ -66,28 +66,14 @@ export default function Home() {
                 <Volume2 className="mr-2 h-4 w-4" />
                 <p className="text-sm font-medium">Ultrasonic Value:</p>
                 <Badge variant="secondary" className="ml-auto">
-                  {item.ultrasonic_value} cm
-                </Badge>
-              </div>
-              <div className="flex items-center mb-4">
-                <Bell className="mr-2 h-4 w-4" />
-                <p className="text-sm font-medium">Buzzer Value:</p>
-                <Badge
-                  className="ml-auto"
-                >
-                  {item.buzzer_value} Hz
+                  {item.distance} cm
                 </Badge>
               </div>
               <div>
                 <Button className="w-full"
-                  onClick={() => buzzeraction(item.id, item.buzzer_status == 0 ? 1 : 0)}
+                  onClick={() => buzzeraction(item.id, item.tbl_led == 0 ? 1 : 0)}
                 >
-                  {item.buzzer_status  == 0 ? "Buzzer ON" : "Buzzer OFF"}
-                </Button>
-              </div>
-              <div className="flex justify-center w-full items-center">
-                <Button variant={item.switch_status == 0 ? "destructive" : "default"} className="rounded-full w-20 h-20 m-5" onClick={() => switchaction(item.switch_status == 0 ? 1 : 0)}>
-                  {item.switch_status == 0 ? "ON" : "OFF"}
+                  {item.tbl_led  == 0 ? "Buzzer ON" : "Buzzer OFF"}
                 </Button>
               </div>
             </CardContent>
