@@ -63,7 +63,7 @@ export default function Home() {
                 <Button className="w-full"
                   onClick={() => buzzeraction(item.id, item.tbl_led == 0 ? 1 : 0)}
                 >
-                  {item.tbl_led  == 0 ? "Buzzer ON" : "Buzzer OFF"}
+                  {item.tbl_led  == 0 ? "LED ON" : "LED OFF"}
                 </Button>
               </div>
             </CardContent>
